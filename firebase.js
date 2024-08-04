@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics, isSupported } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
+import { getStorage, ref, uploadString, getDownloadURL } from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,6 +21,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const firestore = getFirestore(app);
+const storage = getStorage(app);
 
 // Check if the code is running in a browser environment
 if (typeof window !== "undefined") {
@@ -33,4 +35,4 @@ if (typeof window !== "undefined") {
   });
 }
 
-export {firestore}
+export {firestore, storage}
